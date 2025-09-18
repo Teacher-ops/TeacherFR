@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Test Interactif : Discours Direct & Indirect</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+  body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background: linear-gradient(120deg, #e0f7fa, #80deea);
+    color: #073642;
+    min-height: 100vh;
+    padding: 10px 15px;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  header {
+    background-color: #00796b;
+    color: #e0f2f1;
+    margin-bottom: 25px;
+    padding: 25px 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    box-shadow: 0 6px 15px #004d4099;
+  }
+  main {
+    max-width: 720px;
+    margin: auto;
+    background: white;
+    border-radius: 20px;
+    padding: 30px 40px;
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.1);
+  }
+  h2 {
+    border-bottom: 3px solid #004d40;
+    padding-bottom: 10px;
+    margin-top: 0;
+    color: #004d40;
+  }
+  p, label {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  .question {
+    margin-top: 30px;
+  }
+  .option-label {
+    display: block;
+    background: #b2ebf2;
+    margin: 10px 0;
+    padding: 14px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+  }
+  .option-label:hover,
+  .option-label:focus-within {
+    background-color: #80deea;
+  }
+  input[type="radio"] {
+    margin-right: 15px;
+    transform: scale(1.3);
+    vertical-align: middle;
+    pointer-events:auto;
+  }
+  button {
+    margin: 40px auto 0 auto;
+    background-color: #00796b;
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border: none;
+    padding: 18px 60px;
+    border-radius: 40px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px #004d40cc;
+    display: block;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    -webkit-user-select:none;
+  }
+  button:active,
+  button:focus {
+    outline: none;
+    background-color: #004d40;
+  }
+  #results {
+    margin-top: 45px;
+    background: #f1f8f7;
+    border-radius: 18px;
+    padding: 28px 30px;
+    box-shadow: inset 0 5px 20px #a0e1d4aa;
+  }
+  .correct-answer {
+    background-color: #c8e6c9;
+    color: #2e7d32;
+    border-left: 6px solid #2e7d32;
+    margin: 10px 0;
+    padding: 10px 14px;
+    border-radius: 14px;
+  }
+  .wrong-answer {
+    background-color: #ffcdd2;
+    color: #d32f2f;
+    border-left: 6px solid #d32f2f;
+    margin: 10px 0;
+    padding: 10px 14px;
+    border-radius: 14px;
+  }
+  .no-answer {
+    background-color: #fff3e0;
+    color: #d97706;
+    margin: 8px 0 15px 0;
+    padding: 10px 14px;
+    border-radius: 14px;
+  }
+  .score-text {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #004d40;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  @media (max-width: 600px) {
+    main {
+      padding: 20px 25px;
+      margin: 15px auto 40px;
+    }
+    header {
+      font-size: 1.6rem;
+      padding: 20px 15px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>Test interactif : Discours direct & indirect (3AC)</header>
+
+<main>
+  <section>
+    <p>Le discours direct est la manière de rapporter les paroles telles qu'elles ont été prononcées, souvent encadrées par des guillemets.</p>
+    <p>Le discours indirect consiste à rapporter ces paroles sans les citer textuellement, en modifiant la construction de la phrase.</p>
+  </section>
+
+  <form id="quizForm" novalidate>
+
+    <div class="question" id="q1">
+      <h2>1. Transformez en discours indirect :</h2>
+      <p>Paul a expliqué : « Je travaille demain. »</p>
+      <label class="option-label"><input type="radio" name="q1" value="a"> Paul a expliqué qu'il travaille demain.</label>
+      <label class="option-label"><input type="radio" name="q1" value="b"> Paul a expliqué qu'il travaillerait demain.</label>
+      <label class="option-label"><input type="radio" name="q1" value="c"> Paul a expliqué qu'il travaillera demain.</label>
+    </div>
+
+    <div class="question" id="q2">
+      <h2>2. Transformez en discours indirect :</h2>
+      <p>Le professeur a dit : « Vous devez étudier pour l'examen. »</p>
+      <label class="option-label"><input type="radio" name="q2" value="a"> Le professeur a dit que vous devez étudier pour l'examen.</label>
+      <label class="option-label"><input type="radio" name="q2" value="b"> Le professeur a dit que vous deviez étudier pour l'examen.</label>
+      <label class="option-label"><input type="radio" name="q2" value="c"> Le professeur a dit que vous avez étudié pour l'examen.</label>
+    </div>
+
+    <div class="question" id="q3">
+      <h2>3. Réécrivez en discours direct :</h2>
+      <p>Il a affirmé qu'il viendrait ce soir.</p>
+      <label class="option-label"><input type="radio" name="q3" value="a"> Il a dit : « Je viendrai ce soir. »</label>
+      <label class="option-label"><input type="radio" name="q3" value="b"> Il a dit : « Il venait ce soir. »</label>
+      <label class="option-label"><input type="radio" name="q3" value="c"> Il a dit : « Il a venu ce soir. »</label>
+    </div>
+
+    <div class="question" id="q4">
+      <h2>4. Réécrivez en discours direct :</h2>
+      <p>Elle a demandé si tu pouvais l'aider.</p>
+      <label class="option-label"><input type="radio" name="q4" value="a"> Elle a demandé : « Peux-tu m'aider ? »</label>
+      <label class="option-label"><input type="radio" name="q4" value="b"> Elle a demandé : « Tu peux m'aider ? »</label>
+      <label class="option-label"><input type="radio" name="q4" value="c"> Elle a demandé : « Peux-tu lui aider ? »</label>
+    </div>
+
+    <button type="submit">Voir les solutions & le score</button>
+  </form>
+
+  <section id="results" aria-live="polite" role="region" style="display:none;">
+    <p class="score-text" id="scoreText"></p>
+    <div id="detailedResults"></div>
+  </section>
+</main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const quizForm = document.getElementById('quizForm');
+    const resultsSection = document.getElementById('results');
+    const scoreText = document.getElementById('scoreText');
+    const detailedResults = document.getElementById('detailedResults');
+
+    const correctAnswers = {
+      q1: 'b',
+      q2: 'b',
+      q3: 'a',
+      q4: 'a'
+    };
+
+    const explanations = {
+      q1: "Au discours indirect, le verbe « travaille » change en « travaillerait » pour respecter la concordance des temps.",
+      q2: "Le temps du verbe s'adapte au discours indirect dans la phrase correcte.",
+      q3: "La phrase revient à la forme originale de discours direct avec les pronoms et temps corrects.",
+      q4: "La question directe initiale est correctement reformulée."
+    };
+
+    quizForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      let totalQuestions = Object.keys(correctAnswers).length;
+      let score = 0;
+      detailedResults.innerHTML = '';
+
+      for (const [question, correct] of Object.entries(correctAnswers)) {
+        const selected = quizForm.elements[question].value;
+        const container = document.createElement('div');
+        container.style.marginBottom = '20px';
+
+        const questionTitle = document.createElement('h3');
+        questionTitle.textContent = `Question ${question.slice(1)}`;
+        container.appendChild(questionTitle);
+
+        if (!selected) {
+          const noAnswer = document.createElement('p');
+          noAnswer.textContent = "Pas de réponse sélectionnée.";
+          noAnswer.style.color = '#d97706';
+          container.appendChild(noAnswer);
+        }
+
+        // Show all answers with coloring
+        for (const option of ['a', 'b', 'c']) {
+          const optionText = quizForm.querySelector(`input[name="${question}"][value="${option}"]`).parentNode.textContent.trim();
+          const answerDiv = document.createElement('div');
+          answerDiv.textContent = optionText;
+          answerDiv.style.borderRadius = '12px';
+          answerDiv.style.padding = '10px 15px';
+          answerDiv.style.marginTop = '6px';
+
+          if (option === correct) {
+            answerDiv.style.backgroundColor = '#c8e6c9';
+            answerDiv.style.color = '#2e7d32';
+            answerDiv.style.borderLeft = '6px solid #2e7d32';
+          } else if (selected === option) {
+            answerDiv.style.backgroundColor = '#ffcdd2';
+            answerDiv.style.color = '#d32f2f';
+            answerDiv.style.borderLeft = '6px solid #d32f2f';
+          } else {
+            answerDiv.style.backgroundColor = '#f0f0f0';
+            answerDiv.style.color = '#555';
+          }
+          container.appendChild(answerDiv);
+        }
+
+        // Explanation
+        const expl = document.createElement('p');
+        expl.style.fontStyle = 'italic';
+        expl.style.marginTop = '8px';
+        expl.textContent = explanations[question];
+        container.appendChild(expl);
+
+        detailedResults.appendChild(container);
+
+        if (selected === correct) score++;
+      }
+
+      scoreText.textContent = `Votre score : ${score} / ${totalQuestions}`;
+      resultsSection.style.display = 'block';
+
+      // Scroll to results smoothly
+      resultsSection.scrollIntoView({behavior: 'smooth'});
+    });
+  });
+</script>
+
+</body>
+</html>
