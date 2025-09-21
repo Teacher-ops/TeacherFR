@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Présentation - Le discours direct et indirect (3AC)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+body, html {
+  margin: 0; padding: 0; height: 100%;
+  font-family: 'Nunito', sans-serif;
+  color: #2d1b3d;
+  overflow: hidden;
+  background: linear-gradient(135deg, #fdeef4, #f8c9d4, #e8a2c7, #d187ab);
+}
+
+#container {
+  position: relative;
+  width: 100vw; height: 100vh;
+  display: flex; justify-content: center; align-items: center;
+  perspective: 900px;
+}
+
+.slide {
+  position: absolute;
+  width: 85vw; max-width: 1000px; height: 75vh;
+  background: linear-gradient(145deg, #fff0f7cc, #ffe6f0cc);
+  border-radius: 22px;
+  box-shadow: 0 10px 50px rgba(139, 69, 108, 0.2);
+  padding: 48px 48px 48px 48px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
+  border: 2px solid #f4a6cd;
+  display: flex;
+  align-items: flex-start;
+}
+
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  box-shadow: 0 15px 60px rgba(199, 21, 133, 0.3);
+}
+
+.slide-content {
+  color: #2d1b3d;
+  margin-bottom: 12px;
+  flex: 1;
+  margin-right: 20px;
+}
+
+.slide-image {
+  flex-shrink: 0;
+  width: 200px;
+  height: 150px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 8px 25px rgba(139, 69, 108, 0.3);
+  border: 3px solid #ff6b9d;
+  animation: kawaii-float 3s ease-in-out infinite;
+  position: relative;
+  background: linear-gradient(135deg, #ffc3e6, #ff9bd4, #ff6bb6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.slide-image.large {
+  width: 280px;
+  height: 200px;
+}
+
+.slide-image.small {
+  width: 180px;
+  height: 135px;
+}
+
+.slide-image.extra-large {
+  width: 320px;
+  height: 240px;
+}
+
+@keyframes kawaii-float {
+  0%, 100% { 
+    transform: translateY(0px) scale(1); 
+    filter: hue-rotate(0deg);
+  }
+  25% { 
+    transform: translateY(-12px) scale(1.02); 
+    filter: hue-rotate(10deg);
+  }
+  50% { 
+    transform: translateY(-18px) scale(1.04); 
+    filter: hue-rotate(0deg);
+  }
+  75% { 
+    transform: translateY(-12px) scale(1.02); 
+    filter: hue-rotate(-10deg);
+  }
+}
+
+/* Super kawaii sparkle effects */
+.slide-image::before {
+  content: '✨';
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  font-size: 24px;
+  animation: mega-sparkle 2s ease-in-out infinite;
+  z-index: 1;
+}
+
+.slide-image::after {
+  content: '💖';
+  position: absolute;
+  bottom: -10px;
+  left: -10px;
+  font-size: 20px;
+  animation: heart-bounce 1.5s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes mega-sparkle {
+  0%, 100% { 
+    opacity: 0; 
+    transform: scale(0.5) rotate(0deg); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.5) rotate(360deg); 
+  }
+}
+
+@keyframes heart-bounce {
+  0%, 100% { 
+    opacity: 0.7; 
+    transform: scale(1) rotate(-10deg); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.3) rotate(10deg); 
+  }
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 6px #f4a6cd;
+  text-align: center;
+  background: linear-gradient(45deg, #ff6b9d, #c7158b, #8e44ad, #3498db, #ff6b9d);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rainbow-flow 3s ease-in-out infinite;
+}
+
+@keyframes rainbow-flow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #8e44ad;
+  border-bottom: 3px solid #ff6b9d;
+  padding-bottom: 12px;
+  margin-bottom: 26px;
+  text-shadow: 2px 2px 4px #f8c9d4;
+  position: relative;
+}
+
+h2::after {
+  content: '🌸';
+  position: absolute;
+  right: -35px;
+  top: -5px;
+  font-size: 1.8rem;
+  animation: flower-spin 2s ease-in-out infinite;
+}
+
+@keyframes flower-spin {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.2) rotate(15deg); }
+}
+
+p, li {
+  font-size: 1.45rem;
+  line-height: 1.75;
+  margin-bottom: 22px;
+  color: #2d1b3d;
+}
+
+ul, ol {
+  margin-left: 28px;
+}
+
+.example {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ffeaa7);
+  padding: 22px 34px;
+  border-radius: 20px;
+  font-weight: 800;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(255, 154, 158, 0.6);
+  margin: 28px 0;
+  cursor: default;
+  font-size: 1.5rem;
+  color: #4a148c;
+  border: 3px solid #ff6b9d;
+  position: relative;
+  overflow: hidden;
+}
+
+.example::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation: kawaii-shimmer 3s infinite;
+}
+
+@keyframes kawaii-shimmer {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 28px 0 40px;
+  box-shadow: 0 8px 35px rgba(156, 39, 176, 0.25);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+th, td {
+  text-align: center;
+  font-weight: 700;
+  padding: 20px 22px;
+  background: linear-gradient(145deg, #fce4ec, #f8bbd9);
+  user-select: none;
+  color: #4a148c;
+  border: none;
+}
+
+th {
+  background: linear-gradient(135deg, #ff6b9d, #e91e63);
+  color: #fff;
+}
+
+/* Special layout for title slide */
+#slide1 {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#slide1 .slide-image {
+  margin-top: 20px;
+}
+
+/* Super kawaii controls */
+#controls {
+  position: fixed;
+  bottom: 32px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; gap: 20px;
+  z-index: 9999;
+}
+
+button {
+  background: linear-gradient(135deg, #ff6b9d, #8e44ad);
+  border: none;
+  border-radius: 50%;
+  height: 68px; width: 68px;
+  font-size: 2.6rem;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(255, 107, 157, 0.6);
+  transition: all 0.35s ease;
+  display: flex; justify-content: center; align-items: center;
+  user-select:none;
+  position: relative;
+}
+
+button::before {
+  content: '⭐';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 14px;
+  opacity: 0;
+  animation: star-twinkle 2s ease-in-out infinite;
+}
+
+@keyframes star-twinkle {
+  0%, 100% { 
+    opacity: 0; 
+    transform: scale(0.3) rotate(0deg); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.2) rotate(720deg); 
+  }
+}
+
+button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #e91e63, #6b46c1);
+  transform: translateY(-5px) scale(1.15);
+  box-shadow: 0 8px 35px rgba(233, 30, 99, 0.8);
+}
+
+button:hover:not(:disabled)::before {
+  animation-duration: 0.3s;
+}
+
+#voiceControlBtn, #musicToggleBtn {
+  width: 60px;
+  height: 60px;
+  font-size: 1.8rem;
+}
+
+#musicToggleBtn {
+  background: linear-gradient(135deg, #48bb78, #38a169);
+}
+
+#voiceControlBtn.playing {
+  background: linear-gradient(135deg, #4299e1, #3182ce);
+}
+
+/* Ultra kawaii exercise styles */
+.exercise-question {
+  margin: 30px 0;
+  padding: 25px;
+  background: linear-gradient(145deg, #fff5f8, #ffe6f0, #ffeaa7);
+  border-radius: 20px;
+  border: 3px solid #ff6b9d;
+  box-shadow: 0 8px 25px rgba(233, 30, 99, 0.2);
+  position: relative;
+}
+
+.exercise-question::before {
+  content: '🎀';
+  position: absolute;
+  top: -12px;
+  right: 15px;
+  font-size: 24px;
+  animation: ribbon-dance 3s ease-in-out infinite;
+}
+
+.exercise-question::after {
+  content: '🌟';
+  position: absolute;
+  top: -8px;
+  left: 15px;
+  font-size: 20px;
+  animation: star-dance 2.5s ease-in-out infinite reverse;
+}
+
+@keyframes ribbon-dance {
+  0%, 100% { transform: rotate(-10deg) scale(1); }
+  50% { transform: rotate(10deg) scale(1.2); }
+}
+
+@keyframes star-dance {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.3); }
+}
+
+.question-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #880e4f;
+}
+
+.exercise-option {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  border-radius: 15px;
+  padding: 18px 28px;
+  margin: 15px 0;
+  font-weight: 700;
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: 0 6px 25px rgba(102, 126, 234, 0.4);
+  user-select: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.exercise-option:hover {
+  background: linear-gradient(135deg, #5a67d8, #6b46c1);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(90, 103, 216, 0.6);
+}
+
+.exercise-option.correct {
+  background: linear-gradient(135deg, #48bb78, #38a169, #68d391) !important;
+  box-shadow: 0 0 40px rgba(72, 187, 120, 0.7);
+  transform: scale(1.05);
+}
+
+.exercise-option.correct::after {
+  content: '🎉✨';
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  animation: mega-celebrate 1s ease-in-out;
+}
+
+@keyframes mega-celebrate {
+  0% { 
+    opacity: 0; 
+    transform: translateY(-50%) scale(0) rotate(0deg); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: translateY(-50%) scale(1.5) rotate(180deg); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(-50%) scale(1) rotate(360deg); 
+  }
+}
+
+.exercise-option.incorrect {
+  background: linear-gradient(135deg, #fc8181, #f56565, #feb2b2) !important;
+  box-shadow: 0 0 35px rgba(252, 129, 129, 0.7);
+  animation: kawaii-shake 0.8s ease-in-out;
+}
+
+.exercise-option.incorrect::after {
+  content: '💔😢';
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  animation: sad-bounce 1s ease-in-out;
+}
+
+@keyframes sad-bounce {
+  0% { 
+    opacity: 0; 
+    transform: translateY(-50%) scale(0); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: translateY(-60%) scale(1.2); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(-50%) scale(1); 
+  }
+}
+
+@keyframes kawaii-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px) rotate(-2deg); }
+  40% { transform: translateX(8px) rotate(2deg); }
+  60% { transform: translateX(-6px) rotate(-1deg); }
+  80% { transform: translateX(6px) rotate(1deg); }
+}
+
+/* Fade Up Animation */
+.slide-content > * {
+  opacity: 0;
+  transform: translateY(30px);
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide.active .slide-content > * {
+  animation-name: kawaii-fadeUp;
+  animation-duration: 0.8s;
+}
+
+.slide.active .slide-content > *:nth-child(1) { animation-delay: 0.2s; }
+.slide.active .slide-content > *:nth-child(2) { animation-delay: 0.4s; }
+.slide.active .slide-content > *:nth-child(3) { animation-delay: 0.6s; }
+.slide.active .slide-content > *:nth-child(4) { animation-delay: 0.8s; }
+.slide.active .slide-content > *:nth-child(5) { animation-delay: 1.0s; }
+
+@keyframes kawaii-fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .slide {
+    flex-direction: column;
+    padding: 30px;
+  }
+  
+  .slide-content {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  
+  .slide-image {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    align-self: center;
+  }
+}
+</style>
+</head>
+
+<body>
+<div id="container">
+
+  <!-- Slide 1 - Title -->
+  <div class="slide active" id="slide1">
+    <div class="slide-content" tabindex="0">
+      <h1>Le discours direct et le discours indirect</h1>
+      <p>Cours pour les élèves de 3ème année (3AC) au Maroc</p>
+    </div>
+    <div class="slide-image extra-large">📚✨</div>
+  </div>
+
+  <!-- Slide 2 - Introduction -->
+  <div class="slide" id="slide2">
+    <div class="slide-content" tabindex="0">
+      <h2>Introduction</h2>
+      <p>Le discours direct et indirect servent à rapporter les paroles de quelqu'un.</p>
+      <ul>
+        <li><strong>Le discours direct</strong> rapporte les paroles telles qu'elles ont été prononcées.</li>
+        <li><strong>Le discours indirect</strong> rapporte les paroles de façon indirecte, sans guillemets.</li>
+        <li>Ces deux formes sont essentielles pour bien maîtriser le français écrit et oral.</li>
+      </ul>
+    </div>
+    <div class="slide-image large">👩‍🏫🌸</div>
+  </div>
+
+  <!-- Slide 3 - Le discours direct -->
+  <div class="slide" id="slide3">
+    <div class="slide-content" tabindex="0">
+      <h2>Le discours direct</h2>
+      <p>Le discours direct rapporte les paroles exactes de la personne. On utilise des guillemets et des verbes introducteurs.</p>
+      <div class="example">Marie dit : « Je vais au cinéma ce soir. »</div>
+      <p><strong>Caractéristiques :</strong></p>
+      <ul>
+        <li>Utilisation de guillemets (« »)</li>
+        <li>Deux-points avant les paroles</li>
+        <li>Verbe introducteur (dire, demander, répondre...)</li>
+        <li>Conservation des temps et pronoms originaux</li>
+      </ul>
+    </div>
+    <div class="slide-image">💬👧</div>
+  </div>
+
+  <!-- Slide 4 - Le discours indirect -->
+  <div class="slide" id="slide4">
+    <div class="slide-content" tabindex="0">
+      <h2>Le discours indirect</h2>
+      <p>Le discours indirect rapporte les paroles sans les citer exactement. Les paroles sont intégrées dans une proposition subordonnée.</p>
+      <div class="example">Marie dit qu'elle va au cinéma ce soir.</div>
+      <p><strong>Caractéristiques :</strong></p>
+      <ul>
+        <li>Pas de guillemets ni de deux-points</li>
+        <li>Utilisation de mots de liaison ("que", "si", "de")</li>
+        <li>Modification des temps verbaux selon le contexte</li>
+        <li>Adaptation des pronoms et marqueurs temporels</li>
+      </ul>
+    </div>
+    <div class="slide-image">🗨️💖</div>
+  </div>
+
+  <!-- Slide 5 - Differences -->
+  <div class="slide" id="slide5">
+    <div class="slide-content" tabindex="0">
+      <h2>Différences principales</h2>
+      <table>
+        <thead>
+          <tr><th>Discours direct</th><th>Discours indirect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Paroles exactes reproduites</td><td>Paroles reformulées</td></tr>
+          <tr><td>Guillemets et deux-points</td><td>Mots de liaison (que, si, de)</td></tr>
+          <tr><td>Temps verbaux identiques</td><td>Temps verbaux adaptés</td></tr>
+          <tr><td>Pronoms originaux</td><td>Pronoms modifiés</td></tr>
+          <tr><td>Marques d'expressivité conservées</td><td>Marques d'expressivité supprimées</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="slide-image">📊🌟</div>
+  </div>
+
+  <!-- Slide 6 - Transformation rules -->
+  <div class="slide" id="slide6">
+    <div class="slide-content" tabindex="0">
+      <h2>Règles de transformation</h2>
+      <p><strong>Changements de temps (verbe introducteur au passé) :</strong></p>
+      <ul>
+        <li>Présent → Imparfait</li>
+        <li>Passé composé → Plus-que-parfait</li>
+        <li>Futur → Conditionnel présent</li>
+      </ul>
+      <p><strong>Changements de pronoms et marqueurs temporels :</strong></p>
+      <ul>
+        <li>"Je" → "il/elle" | "Nous" → "ils/elles"</li>
+        <li>"Aujourd'hui" → "ce jour-là"</li>
+        <li>"Demain" → "le lendemain" | "Hier" → "la veille"</li>
+      </ul>
+      <div class="example">« Je travaille aujourd'hui. » → Il dit qu'il travaillait ce jour-là.</div>
+    </div>
+    <div class="slide-image">🪄✨</div>
+  </div>
+
+  <!-- Slide 7 - Exercise 1 -->
+  <div class="slide" id="slide7">
+    <div class="slide-content" tabindex="0">
+      <h2>Exercice 1 - Transformation et reconnaissance</h2>
+      
+      <div class="exercise-question">
+        <div class="question-text">1. Quelle phrase est correctement transformée en discours indirect ?<br>
+        Phrase originale : Paul dit : « Je mange une pomme. »</div>
+        <button class="exercise-option" data-correct="true">Paul dit qu'il mange une pomme.</button>
+        <button class="exercise-option" data-correct="false">Paul dit : qu'il mange une pomme.</button>
+        <button class="exercise-option" data-correct="false">Paul dit « il mange une pomme ».</button>
+      </div>
+
+      <div class="exercise-question">
+        <div class="question-text">2. Identifiez le type de discours :<br>
+        « Marie a demandé si tu venais demain. »</div>
+        <button class="exercise-option" data-correct="false">Discours direct</button>
+        <button class="exercise-option" data-correct="true">Discours indirect</button>
+        <button class="exercise-option" data-correct="false">Discours mixte</button>
+      </div>
+
+      <div class="exercise-question">
+        <div class="question-text">3. Transformez en discours direct :<br>
+        « Il a dit qu'il était fatigué. »</div>
+        <button class="exercise-option" data-correct="true">Il a dit : « Je suis fatigué. »</button>
+        <button class="exercise-option" data-correct="false">Il a dit : « Il était fatigué. »</button>
+        <button class="exercise-option" data-correct="false">« Il a dit qu'il était fatigué. »</button>
+      </div>
+    </div>
+    <div class="slide-image small">🤔💭</div>
+  </div>
+
+  <!-- Slide 8 - Exercise 2 -->
+  <div class="slide" id="slide8">
+    <div class="slide-content" tabindex="0">
+      <h2>Exercice 2 - Applications pratiques</h2>
+
+      <div class="exercise-question">
+        <div class="question-text">4. Transformez cette question en discours indirect :<br>
+        « Elle demande : "Où vas-tu ?" »</div>
+        <button class="exercise-option" data-correct="false">Elle demande : où tu vas.</button>
+        <button class="exercise-option" data-correct="true">Elle demande où tu vas.</button>
+        <button class="exercise-option" data-correct="false">Elle demande « où vas-tu ? »</button>
+      </div>
+
+      <div class="exercise-question">
+        <div class="question-text">5. Quelle transformation temporelle est correcte ?<br>
+        « Hier, il a dit : "Je viendrai demain." »</div>
+        <button class="exercise-option" data-correct="false">Hier, il a dit qu'il viendra demain.</button>
+        <button class="exercise-option" data-correct="true">Hier, il a dit qu'il viendrait le lendemain.</button>
+        <button class="exercise-option" data-correct="false">Hier, il a dit qu'il vient aujourd'hui.</button>
+      </div>
+
+      <div class="exercise-question">
+        <div class="question-text">6. Complétez la transformation :<br>
+        « Le professeur a demandé : "Avez-vous compris ?" »</div>
+        <button class="exercise-option" data-correct="true">Le professeur a demandé si nous avions compris.</button>
+        <button class="exercise-option" data-correct="false">Le professeur a demandé : si vous avez compris.</button>
+        <button class="exercise-option" data-correct="false">Le professeur a demandé qu'est-ce que vous avez compris.</button>
+      </div>
+    </div>
+    <div class="slide-image small">🎯🎉</div>
+  </div>
+
+  <!-- Slide 9 - Conclusion -->
+  <div class="slide" id="slide9">
+    <div class="slide-content" tabindex="0">
+      <h2>Conclusion</h2>
+      <p><strong>Points essentiels à retenir :</strong></p>
+      <ul>
+        <li>Le discours direct conserve les paroles exactes avec guillemets</li>
+        <li>Le discours indirect reformule les paroles dans une subordonnée</li>
+        <li>La transformation nécessite des changements de temps, pronoms et marqueurs temporels</li>
+        <li>Ces techniques enrichissent votre expression écrite et orale</li>
+      </ul>
+      <div class="example">Maîtrisez ces règles pour améliorer votre français !</div>
+      <p><strong>Conseil :</strong> Pratiquez régulièrement ces transformations pour les automatiser.</p>
+    </div>
+    <div class="slide-image large">🎊🌟</div>
+  </div>
+
+</div>
+
+<div id="controls">
+  <button id="prevBtn" disabled>&#8592;</button>
+  <button id="nextBtn">&#8594;</button>
+  <button id="voiceControlBtn" title="Démarrer la lecture">▶️</button>
+  <button id="musicToggleBtn" title="Musique de fond">🎹</button>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let currentIndex = 0;
+  let isVoicePlaying = false;
+  let currentUtterance = null;
+  let isMusicPlaying = false;
+  let audioContext;
+  let pianoOscillators = [];
+
+  // Piano melody notes (kawaii version)
+  const pianoNotes = [
+    261.63, 293.66, 329.63, 349.23, 392.00, // C D E F G
+    440.00, 493.88, 523.25, 587.33, 659.25  // A B C D E
+  ];
+
+  function createPianoMusic() {
+    try {
+      if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      }
+
+      pianoOscillators.forEach(osc => {
+        try { osc.stop(); } catch(e) {}
+      });
+      pianoOscillators = [];
+
+      function playNote(frequency, duration, delay, volume = 0.015) {
+        setTimeout(() => {
+          if (!isMusicPlaying) return;
+          
+          const oscillator = audioContext.createOscillator();
+          const gainNode = audioContext.createGain();
+          const filterNode = audioContext.createBiquadFilter();
+          
+          oscillator.connect(filterNode);
+          filterNode.connect(gainNode);
+          gainNode.connect(audioContext.destination);
+          
+          oscillator.type = 'triangle';
+          oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+          
+          filterNode.type = 'lowpass';
+          filterNode.frequency.setValueAtTime(1000, audioContext.currentTime);
+          
+          gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+          gainNode.gain.linearRampToValueAtTime(volume, audioContext.currentTime + 0.1);
+          gainNode.gain.exponentialRampToValueAtTime(volume * 0.2, audioContext.currentTime + duration * 0.7);
+          gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + duration);
+          
+          oscillator.start(audioContext.currentTime);
+          oscillator.stop(audioContext.currentTime + duration);
+          
+          pianoOscillators.push(oscillator);
+        }, delay);
+      }
+
+      function playKawaiiMelody() {
+        if (!isMusicPlaying) return;
+        
+        const melodyPattern = [0, 2, 4, 5, 7, 4, 2, 0]; // Kawaii melody
+        const rhythmPattern = [1, 1, 1.5, 0.8, 1.2, 1.5, 1, 2];
+        
+        let currentTime = 0;
+        melodyPattern.forEach((noteIndex, i) => {
+          const frequency = pianoNotes[noteIndex];
+          const duration = rhythmPattern[i];
+          playNote(frequency, duration * 0.9, currentTime * 600, 0.012);
+          
+          if (i % 3 === 0) {
+            const harmonyFreq = pianoNotes[(noteIndex + 4) % pianoNotes.length];
+            playNote(harmonyFreq, duration * 0.7, currentTime * 600 + 150, 0.008);
+          }
+          
+          currentTime += duration;
+        });
+        
+        if (isMusicPlaying) {
+          setTimeout(playKawaiiMelody, currentTime * 600 + 3000);
+        }
+      }
+      
+      playKawaiiMelody();
+      
+    } catch (e) {
+      console.log('Could not create kawaii piano music:', e);
+    }
+  }
+
+  function stopPianoMusic() {
+    isMusicPlaying = false;
+    pianoOscillators.forEach(osc => {
+      try { osc.stop(); } catch(e) {}
+    });
+    pianoOscillators = [];
+  }
+
+  function speakText(text) {
+    if ('speechSynthesis' in window && !isVoicePlaying) {
+      window.speechSynthesis.cancel();
+      currentUtterance = new SpeechSynthesisUtterance(text);
+      const voices = window.speechSynthesis.getVoices();
+      const frVoice = voices.find(v => v.lang.startsWith('fr') && v.name.toLowerCase().includes('female')) || voices.find(v => v.lang.startsWith('fr'));
+      if(frVoice) currentUtterance.voice = frVoice;
+      currentUtterance.rate = 1;
+      
+      currentUtterance.onstart = () => {
+        isVoicePlaying = true;
+        updateVoiceButton();
+      };
+      
+      currentUtterance.onend = () => {
+        isVoicePlaying = false;
+        updateVoiceButton();
+      };
+      
+      window.speechSynthesis.speak(currentUtterance);
+    }
+  }
+
+  function pauseVoice() {
+    if ('speechSynthesis' in window && window.speechSynthesis.speaking) {
+      window.speechSynthesis.pause();
+      isVoicePlaying = false;
+      updateVoiceButton();
+    }
+  }
+
+  function resumeVoice() {
+    if ('speechSynthesis' in window && window.speechSynthesis.paused) {
+      window.speechSynthesis.resume();
+      isVoicePlaying = true;
+      updateVoiceButton();
+    }
+  }
+
+  function stopVoice() {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      isVoicePlaying = false;
+      updateVoiceButton();
+    }
+  }
+
+  function updateVoiceButton() {
+    const btn = document.getElementById('voiceControlBtn');
+    if (isVoicePlaying) {
+      btn.innerHTML = '⏸️';
+      btn.title = 'Mettre en pause';
+      btn.classList.add('playing');
+    } else if (window.speechSynthesis.paused) {
+      btn.innerHTML = '▶️';
+      btn.title = 'Reprendre la lecture';
+      btn.classList.add('playing');
+    } else {
+      btn.innerHTML = '▶️';
+      btn.title = 'Démarrer la lecture';
+      btn.classList.remove('playing');
+    }
+  }
+
+  function getSlideText(slide) {
+    return slide.querySelector('.slide-content').innerText;
+  }
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+    document.getElementById('prevBtn').disabled = (index === 0);
+    document.getElementById('nextBtn').disabled = (index === slides.length - 1);
+    slides[index].querySelector('.slide-content').focus();
+    
+    if (isVoicePlaying || window.speechSynthesis.paused) {
+      stopVoice();
+      setTimeout(() => speakText(getSlideText(slides[index])), 500);
+    }
+  }
+
+  // Navigation
+  document.getElementById('prevBtn').onclick = () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      showSlide(currentIndex);
+    }
+  };
+
+  document.getElementById('nextBtn').onclick = () => {
+    if (currentIndex < slides.length - 1) {
+      currentIndex++;
+      showSlide(currentIndex);
+    }
+  };
+
+  // Voice control
+  document.getElementById('voiceControlBtn').onclick = () => {
+    if (isVoicePlaying) {
+      pauseVoice();
+    } else if (window.speechSynthesis.paused) {
+      resumeVoice();
+    } else {
+      speakText(getSlideText(slides[currentIndex]));
+    }
+  };
+
+  // Music control
+  document.getElementById('musicToggleBtn').onclick = () => {
+    if (isMusicPlaying) {
+      stopPianoMusic();
+      document.getElementById('musicToggleBtn').classList.add('paused');
+      document.getElementById('musicToggleBtn').innerHTML = '🎹';
+      document.getElementById('musicToggleBtn').title = 'Démarrer la musique kawaii';
+    } else {
+      isMusicPlaying = true;
+      createPianoMusic();
+      document.getElementById('musicToggleBtn').classList.remove('paused');
+      document.getElementById('musicToggleBtn').innerHTML = '🎶';
+      document.getElementById('musicToggleBtn').title = 'Arrêter la musique kawaii';
+    }
+  };
+
+  // Keyboard navigation
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') {
+      if (currentIndex < slides.length - 1) {
+        currentIndex++;
+        showSlide(currentIndex);
+        e.preventDefault();
+      }
+    } else if (e.key === 'ArrowLeft') {
+      if (currentIndex > 0) {
+        currentIndex--;
+        showSlide(currentIndex);
+        e.preventDefault();
+      }
+    }
+  });
+
+  // Super kawaii sounds
+  function playKawaiiSuccess() {
+    try {
+      const audioCtx = audioContext || new (window.AudioContext || window.webkitAudioContext)();
+      
+      const notes = [523.25, 659.25, 783.99, 1046.5]; // C5, E5, G5, C6
+      notes.forEach((freq, i) => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.frequency.value = freq;
+        osc.type = 'triangle';
+        gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1);
+        osc.start(audioCtx.currentTime + i * 0.15);
+        osc.stop(audioCtx.currentTime + 1);
+      });
+
+      setTimeout(() => {
+        const kawaii = new SpeechSynthesisUtterance('Kawaii ! Tu es génial ! Bravo mon petit étudiant ! ');
+        const voices = window.speechSynthesis.getVoices();
+        const frVoice = voices.find(v => v.lang.startsWith('fr') && v.name.toLowerCase().includes('female')) || voices.find(v => v.lang.startsWith('fr'));
+        if(frVoice) kawaii.voice = frVoice;
+        kawaii.rate = 1.1;
+        kawaii.pitch = 1.4;
+        window.speechSynthesis.speak(kawaii);
+      }, 300);
+
+    } catch(e) {
+      console.log('Could not play kawaii success sound');
+    }
+  }
+
+  function playKawaiiError() {
+    try {
+      const audioCtx = audioContext || new (window.AudioContext || window.webkitAudioContext)();
+      
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.frequency.setValueAtTime(250, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(150, audioCtx.currentTime + 0.8);
+      osc.type = 'triangle';
+      gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.8);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.8);
+
+      setTimeout(() => {
+        const encourage = new SpeechSynthesisUtterance('Oh non ! Mais ce n\'est pas grave ! Essaie encore, tu vas y arriver ! Ganbatte !');
+        const voices = window.speechSynthesis.getVoices();
+        const frVoice = voices.find(v => v.lang.startsWith('fr') && v.name.toLowerCase().includes('female')) || voices.find(v => v.lang.startsWith('fr'));
+        if(frVoice) encourage.voice = frVoice;
+        encourage.rate = 1;
+        encourage.pitch = 1.2;
+        window.speechSynthesis.speak(encourage);
+      }, 900);
+
+    } catch(e) {
+      console.log('Could not play kawaii error sound');
+    }
+  }
+
+  // Exercise functionality
+  document.querySelectorAll('.exercise-option').forEach(button => {
+    button.addEventListener('click', () => {
+      const questionDiv = button.closest('.exercise-question');
+      const allButtons = questionDiv.querySelectorAll('.exercise-option');
+      allButtons.forEach(btn => btn.style.pointerEvents = 'none');
+
+      if (button.dataset.correct === 'true') {
+        button.classList.add('correct');
+        playKawaiiSuccess();
+      } else {
+        button.classList.add('incorrect');
+        const correctButton = questionDiv.querySelector('[data-correct="true"]');
+        setTimeout(() => {
+          correctButton.classList.add('correct');
+        }, 1200);
+        
+        playKawaiiError();
+      }
+
+      setTimeout(() => {
+        allButtons.forEach(btn => btn.style.pointerEvents = 'auto');
+      }, 4000);
+    });
+  });
+
+  // Initialize
+  window.onload = () => {
+    if ('speechSynthesis' in window) {
+      speechSynthesis.getVoices();
+      setTimeout(() => {
+        speechSynthesis.getVoices();
+      }, 100);
+    }
+    
+    showSlide(currentIndex);
+    updateVoiceButton();
+  };
+
+  // Handle visibility change
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (isMusicPlaying) stopPianoMusic();
+      if (isVoicePlaying) pauseVoice();
+    }
+  });
+</script>
+</body>
+
+</html>
